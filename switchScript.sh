@@ -64,6 +64,16 @@ else
     rm hekate.zip
 fi
 
+### Fetch Sigpatches from https://hackintendo.com/download/sigpatches
+curl -sL https://raw.githubusercontent.com/huangqian8/SwitchPlugins/main/plugins/sigpatches.zip -o sigpatches.zip
+if [ $? -ne 0 ]; then
+    echo "sigpatches download\033[31m failed\033[0m."
+else
+    echo "sigpatches download\033[32m success\033[0m."
+    unzip -oq sigpatches.zip
+    rm sigpatches.zip
+fi
+
 ### Fetch logo
 curl -sL https://raw.githubusercontent.com/huangqian8/SwitchPlugins/main/theme/logo.zip -o logo.zip
 if [ $? -ne 0 ]; then
@@ -497,6 +507,23 @@ else
     rm sys-tune.zip
 fi
 
+###
+cat >> ../description.txt << ENDOFFILE
+nx-ovlloader
+Tesla-Menu
+EdiZon
+ovl-sysmodules
+StatusMonitor
+sys-clk
+ReverseNX-RT
+ldn_mitm
+emuiibo
+QuickNTP
+Fizeau
+Zing
+sys-tune
+ENDOFFILE
+
 ### Fetch sys-patch
 curl -sL https://api.github.com/repos/impeeza/sys-patch/releases/latest \
   | jq '.tag_name' \
@@ -515,22 +542,21 @@ else
     rm sys-patch.zip
 fi
 
-### 
-cat >> ../description.txt << ENDOFFILE
-nx-ovlloader
-Tesla-Menu
-EdiZon
-ovl-sysmodules
-StatusMonitor
-sys-clk
-ReverseNX-RT
-ldn_mitm
-emuiibo
-QuickNTP
-Fizeau
-Zing
-sys-tune
-ENDOFFILE
+### Fetch MissionControl
+curl -sL https://api.github.com/repos/ndeadly/MissionControl/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo MissionControl {} >> ../description.txt
+curl -sL https://api.github.com/repos/ndeadly/MissionControl/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*MissionControl[^"]*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o MissionControl.zip
+if [ $? -ne 0 ]; then
+    echo "MissionControl download\033[31m failed\033[0m."
+else
+    echo "MissionControl download\033[32m success\033[0m."
+    unzip -oq MissionControl.zip
+    rm MissionControl.zip
+fi
 
 ### Rename hekate_ctcaer_*.bin to payload.bin
 find . -name "*hekate_ctcaer*" -exec mv {} payload.bin \;
@@ -560,7 +586,7 @@ payload=bootloader/payloads/fusee.bin
 [CFW (emuMMC)]
 emummcforce=1
 fss0=atmosphere/package3
-; kip1patch=nosigchk
+kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_emunand.bmp
 id=cfw-emu
@@ -568,7 +594,7 @@ id=cfw-emu
 [CFW (sysMMC)]
 emummc_force_disable=1
 fss0=atmosphere/package3
-; kip1patch=nosigchk
+kip1patch=nosigchk
 atmosphere=1
 icon=bootloader/res/icon_Atmosphere_sysnand.bmp
 id=cfw-sys
