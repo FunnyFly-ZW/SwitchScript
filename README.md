@@ -9,7 +9,7 @@
     - [x] `Sigpatches` [From Here](https://hackintendo.com/download/sigpatches/)
   - Payload插件
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/Decscots/Lockpick_RCM/releases/latest)
-    - [x] Hekate下的文件管理工具 `TegraExplorer` [From Here](https://github.com/zdm65477730/TegraExplorer/releases/latest)
+    - [x] Hekate下的文件管理工具 `TegraExplorer` [From Here](https://github.com/suchmememanyskill/TegraExplorer/releases/latest)
     - [x] Hekate下删除主题和关闭插件自动启动 `CommonProblemResolver` [From Here](https://github.com/zdm65477730/CommonProblemResolver/releases/latest)
   - Nro插件
     - [x] 联网检测是否屏蔽任天堂服务器 `Switch_90DNS_tester` [From Here](https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest)
@@ -31,14 +31,13 @@
 
   - 补丁
     - [x] 主题破解 `theme-patches` [From Here](https://github.com/exelix11/theme-patches)
-  - Tesla
+  - Ultrahand
     - [x] 加载器 `nx-ovlloader` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 初始菜单 `Tesla-Menu` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
+    - [x] 菜单 `Ultrahand-Overlay` [From Here](https://github.com/ppkantorski/Ultrahand-Overlay/releases/latest)
   - Ovl插件
     - [x] 金手指工具 `EdiZon` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统模块 `ovl-sysmodules` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统监视 `StatusMonitor` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 系统超频 `sys-clk` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 掌机底座模式切换 `ReverseNX-RT` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 局域网联机 `ldn_mitm` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 虚拟Amiibo `emuiibo` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
@@ -47,6 +46,9 @@
     - [x] 金手指工具 `Zing` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 后台音乐 `sys-tune` [From Here](https://www.tekqart.com/thread-370954-1-1.html)
     - [x] 系统补丁 `sys-patch` [From Here](https://github.com/impeeza/sys-patch/releases/latest)
+    - [x] 超频插件 `sys-clk` [From Here](https://github.com/retronx-team/sys-clk/releases/latest)
+    - [x] 调频插件 `OC Toolkit` [From Here](https://github.com/halop/OC_Toolkit/releases/latest)
+
   - 其他
     - [x] 蓝牙手柄插件 `MissionControl` [From Here](https://github.com/ndeadly/MissionControl/releases/latest)
 
@@ -60,7 +62,7 @@
     - [x] 在 `atmosphere/config` 文件夹中创建 `override_config.ini`
     - [x] 在 `atmosphere/config` 文件夹中创建 `system_settings.ini`
     - [x] 删除 `switch` 文件夹中 `haze.nro`
-    - [x] 删除 `switch` 文件夹中 `reboot_to_hekate.nro`
+    - [x] 删除 `switch` 文件夹中 `daybreak.nro`
     - [x] 删除 `switch` 文件夹中 `reboot_to_payload.nro`
 
 ## 使用说明（仅适用于 `Linux` ，科学上网环境）:
@@ -68,11 +70,13 @@
   - 运行脚本（switchScript.sh）
 
 ## 更新日志
+- 2024-07-21 添加 `sys-clk`、`OC Toolkit`
+- 2024-07-16 更新脚本，替换 `Tesla-Menu` 为 `Ultrahand-Overlay`，去除 `sys-clk`
 - 2024-07-06 更新 `daybreak` 为汉化版
 - 2024-06-29 添加 `hb-appstore`
 - 2024-06-22 添加 `SigPatches`、`MissionControl`
 - 2024-06-20 更新 `hekate_ipl.ini` 修正启动时 `nosigchk` 报错；集成 `NX-Shell`
-- 2024-06-16 更新 `Hekate + Nyx`、 `sys-patch` 仓库链接，去除 `SigPatches`
+- 2024-06-16 更新 `Hekate + Nyx`、`sys-patch` 仓库链接，去除 `SigPatches`
 - 2024-05-25 更新 `sys-patch`，集成`Moonlight`
 - 2024-05-15 更新 `SigPatches`，修正部分游戏运行错误的情况
 - 2024-04-12 更新脚本，修正插件源更新造成的运行错误，增强脚本的稳定性
